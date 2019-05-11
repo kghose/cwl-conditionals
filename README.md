@@ -1,10 +1,10 @@
 # CWL conditionals test bed
 
-See common-workflow-language#854 for background and syntax
+See common-workflow-language/common-workflow-language#854 for background and syntax
 
 - Create a new virtual environment for testing
-- Install CWL tool kaushik/conditionals/runif branch: git@github.com:common-workflow-language/cwltool.git@
-- Install Toil from kaushik-work/toil  kaushik/conditionals/runif branch
+- Install CWL tool common-workflow-language/cwltool.git@kaushik/conditionals/runif
+- Install Toil from kaushik-work/toil  kaushik-work/toil.git@kaushik/conditionals/runif
 - Checkout the test scripts and test files
 - Run them with `cwltoil` 
 
