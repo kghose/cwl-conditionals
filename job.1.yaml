@@ -1,5 +1,0 @@
-in1: 
-  class: File
-  path: ./inputs/input.txt
-
-val: 1

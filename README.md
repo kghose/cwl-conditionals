@@ -20,7 +20,13 @@ Now you can run the different patterns. Look at the following workflows
 and the documentation in the code
 
 ```
-
+workflows/pattern1-1.cwl
+workflows/pattern1-2.cwl
+workflows/pattern2.cwl
+workflows/pattern3.cwl
+workflows/pattern4.cwl
+workflows/pattern5.cwl
+workflows/scatter.cwl
 ```
 
 To discuss during 2019.06.04 community chat
