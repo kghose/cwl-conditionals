@@ -1,7 +1,7 @@
 # This scatters two conditional steps to show how conditionals
 # and scatter work together
 
-# cwltoil workflows/pattern2.cwl --val 4  # evens = foo, odds = bar
+# cwltoil workflows/scatter.cwl --val 4  # evens = foo, odds = bar
 
 
 class: Workflow
