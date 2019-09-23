@@ -20,7 +20,7 @@ steps:
       in1: val
       a_new_var: val
     run: ../tools/foo.cwl
-    runIf: $(inputs.a_new_var > 1)
+    when: $(inputs.a_new_var > 1)
     out: [out1]
 
 
@@ -29,7 +29,7 @@ steps:
       in1: val
       a_new_var: val
     run: ../tools/bar.cwl
-    runIf: $(inputs.a_new_var > 2)
+    when: $(inputs.a_new_var > 2)
     out: [out1]
 
 outputs:

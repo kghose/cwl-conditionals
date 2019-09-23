@@ -22,7 +22,7 @@ steps:
     in:
       val: val
     run: ../tools/foo.cwl
-    runIf: ${return inputs.val > 1}
+    when: ${return inputs.val > 1}
     out: [out1]
 
   step2:

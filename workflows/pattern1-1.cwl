@@ -17,7 +17,7 @@ steps:
       in1: val
       a_new_var: val
     run: ../tools/foo.cwl
-    runIf: $(inputs.a_new_var > 1)
+    when: $(inputs.a_new_var > 1)
     out: [out1]
     # We could have used inputs.in1 but we do this to illustrate
     # How we can use additional variables in the expression that
