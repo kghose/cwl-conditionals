@@ -22,7 +22,7 @@ steps:
       in1: step1/out1
     scatter: [in1]
     run: ../tools/foo.cwl
-    runIf: $(inputs.in1 % 2)
+    when: $(inputs.in1 % 2)
     out: [out1]
     
   step3:
@@ -30,7 +30,7 @@ steps:
       in1: step1/out1
     scatter: [in1]
     run: ../tools/bar.cwl
-    runIf: $(1 - inputs.in1 % 2)
+    when: $(1 - inputs.in1 % 2)
     out: [out1]
 
 outputs: 
