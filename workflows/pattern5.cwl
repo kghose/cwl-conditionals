@@ -20,7 +20,7 @@ steps:
       in1: val
       a_new_var: val
     run: ../tools/foo.cwl
-    runIf: $(inputs.a_new_var > 1)
+    when: $(inputs.a_new_var > 1)
     out: [out1]
 
 
@@ -29,16 +29,16 @@ steps:
       in1: val
       a_new_var: val
     run: ../tools/bar.cwl
-    runIf: $(inputs.a_new_var < 1)
+    when: $(inputs.a_new_var < 1)
     out: [out1]
 
 outputs:
   out1: 
     type: string
     outputSource:
-      - step0/out1
-      - step1/out1
-    branchSelect: the_one_that_ran
+      the_one_that_ran:
+        - step0/out1
+        - step1/out1
 
 requirements: 
   InlineJavascriptRequirement: {}

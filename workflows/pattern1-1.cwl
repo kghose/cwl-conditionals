@@ -27,9 +27,9 @@ outputs:
   out1: 
     type: string
     outputSource:
-      - step1/out1
-      - in1
-    branchSelect: first_that_ran 
+      first_that_ran:
+        - step1/out1
+        - in1
 
 requirements: 
   InlineJavascriptRequirement: {}
