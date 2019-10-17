@@ -29,9 +29,9 @@ steps:
     in:
       in1: 
         source:
-          - step1/out1
-          - in1
-        branchSelect: first_that_ran  
+          first_that_ran:
+            - step1/out1
+            - in1
 
     run: ../tools/echo.cwl
     out: [out1]

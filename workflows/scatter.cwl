@@ -37,9 +37,9 @@ outputs:
   out1:
     type: string[]
     outputSource:
-      - step2/out1
-      - step3/out1
-    branchSelect: all_that_ran  # Omitting will give nulls
+      all_that_ran:
+        - step2/out1
+        - step3/out1
     linkMerge: merge_flattened  # Omitting will give validation error
 
 requirements: 

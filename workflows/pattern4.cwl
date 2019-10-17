@@ -37,9 +37,9 @@ outputs:
     type: string[]
     # type: string  # The singleton type will raise a validation error
     outputSource:
-      - step0/out1
-      - step1/out1
-    branchSelect: all_that_ran
+      all_that_ran:
+        - step0/out1
+        - step1/out1
 
 requirements: 
   InlineJavascriptRequirement: {}
