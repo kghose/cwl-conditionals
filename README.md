@@ -13,15 +13,31 @@
 Also see [setup.sh](setup.sh)
 
 - Create a new virtual environment for testing
-- Install CWL tool `pa/conditionals` branch
 - Install Toil from `kaushik-work/toil`  `kaushik/conditionals/when` branch
+- Install CWL tool `pa/conditionals` branch
 - Checkout the test scripts and test files
 - Run them with `cwltoil` 
 
 
+Due to the vagaries of python's setup infrastructure, you have to do the following state dependent steps
+
 ```
-pip install git+https://github.com/common-workflow-language/cwltool.git@pa/conditionals
-pip install git+https://github.com/kaushik-work/toil.git@kaushik/conditionals/when toil[cwl]
+git clone https://github.com/kaushik-work/toil.git
+cd toil
+git checkout kaushik/conditionals/when
+pip install -e .[cwl]
+cd ..
+
+toil --version  # should read 3.21.0a1
+
+# cwltool has to be installed from a clone. Not clear to me why
+# has something to do with the schema not being properly installed I think
+git clone https://github.com/common-workflow-language/cwltool.git
+cd cwltool
+git checkout pa/conditionals
+pip install -e .
+cd ..
+
 git clone https://github.com/kaushik-work/cwl-conditionals.git
 cd cwl-conditionals
 
