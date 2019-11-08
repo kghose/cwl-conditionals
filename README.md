@@ -16,7 +16,7 @@ Also see [setup.sh](setup.sh)
 - Install Toil from `kaushik-work/toil`  `kaushik/conditionals/when` branch
 - Install CWL tool `pa/conditionals` branch
 - Checkout the test scripts and test files
-- Run them with `cwltoil` 
+- Run them with `toil-cwl-runner` 
 
 
 Due to the vagaries of python's setup infrastructure, you have to do the following state dependent steps
