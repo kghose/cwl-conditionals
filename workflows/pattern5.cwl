@@ -1,11 +1,11 @@
 # Pattern 5: Same as if else 
 
-# cwltoil workflows/pattern2.cwl --val 0  # bar
-# cwltoil workflows/pattern2.cwl --val 1  # Raises a warning
-# cwltoil workflows/pattern2.cwl --val 2  # foo
+# cwltoil --enable-dev workflows/pattern2.cwl --val 0  # bar
+# cwltoil --enable-dev workflows/pattern2.cwl --val 1  # Runtime error
+# cwltoil --enable-dev workflows/pattern2.cwl --val 2  # foo
 
 class: Workflow
-cwlVersion: v1.2
+cwlVersion: v1.2.0-dev1
 inputs:
   val: int
 
@@ -36,9 +36,9 @@ outputs:
   out1: 
     type: string
     outputSource:
-      the_one_that_ran:
         - step0/out1
         - step1/out1
+    pickValue: first_non_null
 
 requirements: 
   InlineJavascriptRequirement: {}

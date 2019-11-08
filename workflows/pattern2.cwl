@@ -1,11 +1,11 @@
 # Pattern 2: Efficient if-else
 
-# cwltoil workflows/pattern2.cwl --val 0
-# cwltoil workflows/pattern2.cwl --val 1  -> should give a warning
-# cwltoil workflows/pattern2.cwl --val 2
+# cwltoil --enable-dev workflows/pattern2.cwl --val 0
+# cwltoil --enable-dev workflows/pattern2.cwl --val 1  -> Raises exception
+# cwltoil --enable-dev workflows/pattern2.cwl --val 2
  
 class: Workflow
-cwlVersion: v1.2
+cwlVersion: v1.2.0-dev1
 inputs:
   val: int
 
@@ -36,9 +36,9 @@ outputs:
   out1: 
     type: string
     outputSource:
-      the_one_that_ran:
         - step0/out1
         - step1/out1
+    pickValue: first_non_null
 
 requirements: 
   InlineJavascriptRequirement: {}

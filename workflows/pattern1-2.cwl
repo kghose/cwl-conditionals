@@ -1,11 +1,11 @@
 # This implements the bypass pattern
 # on workflow steps 
 
-# cwltoil workflows/pattern1-2.cwl --in1 "Direct" --val 1
-# cwltoil workflows/pattern1-2.cwl --in1 "Direct" --val 2
+# cwltoil --enable-dev workflows/pattern1-2.cwl --in1 "Direct" --val 1
+# cwltoil --enable-dev workflows/pattern1-2.cwl --in1 "Direct" --val 2
 
 class: Workflow
-cwlVersion: v1.2
+cwlVersion: v1.2.0-dev1
 inputs:
   in1: string
   val: int
@@ -20,6 +20,7 @@ steps:
 
   step1:
     in:
+      in1: val
       val: val
     run: ../tools/foo.cwl
     when: ${return inputs.val > 1}
@@ -29,10 +30,9 @@ steps:
     in:
       in1: 
         source:
-          first_that_ran:
             - step1/out1
             - in1
-
+        pickValue: first_non_null         
     run: ../tools/echo.cwl
     out: [out1]
 

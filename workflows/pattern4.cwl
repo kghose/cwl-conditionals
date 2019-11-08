@@ -1,11 +1,11 @@
 # Pattern 4: Zero or more to run
 
-# cwltoil workflows/pattern4.cwl --val 1  # Empty list
-# cwltoil workflows/pattern4.cwl --val 2  # One item
-# cwltoil workflows/pattern4.cwl --val 3  # two items
+# cwltoil --enable-dev workflows/pattern4.cwl --val 1  # Empty list
+# cwltoil --enable-dev workflows/pattern4.cwl --val 2  # One item
+# cwltoil --enable-dev workflows/pattern4.cwl --val 3  # two items
 
 class: Workflow
-cwlVersion: v1.2
+cwlVersion: v1.2.0-dev1
 inputs:
   val: int
 
@@ -37,9 +37,9 @@ outputs:
     type: string[]
     # type: string  # The singleton type will raise a validation error
     outputSource:
-      all_that_ran:
         - step0/out1
         - step1/out1
+    pickValue: all_non_null
 
 requirements: 
   InlineJavascriptRequirement: {}

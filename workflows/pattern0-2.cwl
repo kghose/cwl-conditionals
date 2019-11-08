@@ -2,11 +2,11 @@
 # Will warn about this this since the output is not optional
 # but is fed from a conditional step
 
-# cwltoil workflows/pattern0-2.cwl --val 1
-# cwltoil workflows/pattern0-2.cwl --val 2
+# cwltoil --enable-dev workflows/pattern0-2.cwl --val 1
+# cwltoil --enable-dev workflows/pattern0-2.cwl --val 2
 
 class: Workflow
-cwlVersion: v1.2
+cwlVersion: v1.2.0-dev1
 inputs:
   val: int
 

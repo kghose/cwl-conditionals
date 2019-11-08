@@ -1,11 +1,11 @@
 # Pattern 3: Inefficient if-else
 
-# cwltoil workflows/pattern3.cwl --val 0
-# cwltoil workflows/pattern3.cwl --val 1  -> should NOT give any issues
-# cwltoil workflows/pattern3.cwl --val 2
+# cwltoil --enable-dev workflows/pattern3.cwl --val 0
+# cwltoil --enable-dev workflows/pattern3.cwl --val 1  -> should NOT give any issues
+# cwltoil --enable-dev workflows/pattern3.cwl --val 2
 
 class: Workflow
-cwlVersion: v1.2
+cwlVersion: v1.2.0-dev1
 inputs:
   val: int
 
@@ -29,16 +29,15 @@ steps:
       in1: val
       a_new_var: val
     run: ../tools/bar.cwl
-    # when: $(inputs.a_new_var < 1)
     out: [out1]
 
 outputs:
   out1: 
     type: string
     outputSource:
-      first_that_ran:
         - step0/out1
         - step1/out1
+    pickValue: first_non_null
 
 requirements: 
   InlineJavascriptRequirement: {}

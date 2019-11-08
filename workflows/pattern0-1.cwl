@@ -1,11 +1,11 @@
 # This implements the direct link pattern. The validator
 # Will pass this since the output is optional
 
-# cwltoil workflows/pattern0-1.cwl --val 1
-# cwltoil workflows/pattern0-1.cwl --val 2
+# cwltoil --enable-dev workflows/pattern0-1.cwl --val 1
+# cwltoil --enable-dev workflows/pattern0-1.cwl --val 2
 
 class: Workflow
-cwlVersion: v1.2
+cwlVersion: v1.2.0-dev1
 inputs:
   val: int
 
