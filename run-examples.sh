@@ -32,3 +32,4 @@ toil-cwl-runner --enable-dev workflows/pattern2.cwl --val 2  # foo
 
 toil-cwl-runner --enable-dev workflows/scatter-1.cwl --val 4  # just odd = foo
 toil-cwl-runner --enable-dev workflows/scatter-2.cwl --val 4  # odd = foo, evens = bar
+toil-cwl-runner --enable-dev workflows/scatter-3.cwl --val 4  # odd = foo, evens = bar

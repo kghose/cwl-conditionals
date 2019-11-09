@@ -1,7 +1,7 @@
 # This scatters two conditional steps to show how conditionals
 # and scatter work together
 
-# toil-cwl-runner --enable-dev workflows/scatter-2.cwl --val 4  # odd = foo, evens = bar
+# toil-cwl-runner --enable-dev workflows/scatter-3.cwl --val 4  # odd = foo, evens = bar
 
 
 class: Workflow
@@ -35,12 +35,15 @@ steps:
 
 outputs: 
   out1:
-    type: string[]
+    type: 
+      type: array
+      items: 
+        type: array
+        items: string
     outputSource:
         - step2/out1
         - step3/out1
-    pickValue: all_non_null  # Omitting will give a warning
-    linkMerge: merge_flattened  # Omitting will give validation error
+    pickValue: all_non_null  # This has no effect because it does not recurse
 
 requirements: 
   ScatterFeatureRequirement: {}
