@@ -29,30 +29,22 @@ Also see [setup.sh](setup.sh)
 - Checkout the test scripts and test files
 - Run them with `toil-cwl-runner` 
 
-
-Due to the vagaries of python's setup infrastructure, you have to do the following state dependent steps. **editable installs are needed**. This is
-not clear to me why.
-
+Manual steps (in a fresh virtualenv):
 ```
-git clone https://github.com/kaushik-work/toil.git
+# If toil is not installed from clone, it complains about missing galaxy libs
+git clone --branch kaushik/conditionals/when https://github.com/kaushik-work/toil.git
 cd toil
-git checkout kaushik/conditionals/when
 pip install -e .[cwl]
+toil --version  # should read 3.21.0a1
 cd ..
 
-toil --version  # should read 3.21.0a1
 
-# cwltool has to be installed from a clone. Not clear to me why
-# has something to do with the schema not being properly installed I think
-git clone https://github.com/common-workflow-language/cwltool.git
+git clone --branch pa/conditionals https://github.com/common-workflow-language/cwltool.git
 cd cwltool
-git checkout pa/conditionals
 pip install -e .
 cd ..
 
-git clone https://github.com/kaushik-work/cwl-conditionals.git
 cd cwl-conditionals
-
 chmod +x run-examples.sh
 ./run-examples.sh
 ```  
