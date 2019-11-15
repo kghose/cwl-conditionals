@@ -10,6 +10,17 @@
 
 ## Steps for getting up an running
 
+tl;dr
+
+```
+git clone https://github.com/kaushik-work/cwl-conditionals.git
+chmod +x ./cwl-conditionals/setup.sh
+./cwl-conditionals/setup.sh
+```
+If you don't have Python3 (callable as python3) you can replace the line in
+`setup.sh` to create a Python2 virtualenv.
+
+
 Also see [setup.sh](setup.sh)
 
 - Create a new virtual environment for testing
