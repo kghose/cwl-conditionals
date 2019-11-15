@@ -19,7 +19,8 @@ Also see [setup.sh](setup.sh)
 - Run them with `toil-cwl-runner` 
 
 
-Due to the vagaries of python's setup infrastructure, you have to do the following state dependent steps
+Due to the vagaries of python's setup infrastructure, you have to do the following state dependent steps. **editable installs are needed**. This is
+not clear to me why.
 
 ```
 git clone https://github.com/kaushik-work/toil.git
