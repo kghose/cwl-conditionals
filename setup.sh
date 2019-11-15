@@ -5,11 +5,14 @@
 # chmod +x ./cwl-conditionals/setup.sh
 # ./cwl-conditionals/setup.sh
 
-python3 -m venv ~/.venvs/conditionals
-# virtualenv ~/.venvs/conditionals   # Python 2
+CONDIENV=conditionals-env
 
-. ~/.venvs/conditionals/bin/activate
+python3 -m venv ${CONDIENV}
+# virtualenv ${CONDIENV}   # Python 2
 
+. ${CONDIENV}/bin/activate
+
+# If toil is not installed from clone, it complains about missing galaxy libs
 git clone --branch kaushik/conditionals/when https://github.com/kaushik-work/toil.git
 cd toil
 pip install -e .[cwl]
@@ -17,8 +20,6 @@ cd ..
 
 toil --version  # should read 3.21.0a1
 
-# cwltool has to be installed from a clone. Not clear to me why
-# has something to do with the schema not being properly installed I think
 git clone --branch pa/conditionals https://github.com/common-workflow-language/cwltool.git
 cd cwltool
 pip install -e .
