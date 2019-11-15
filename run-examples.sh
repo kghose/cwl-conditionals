@@ -15,7 +15,7 @@ toil-cwl-runner --enable-dev workflows/pattern1-2.cwl --in1 "Direct" --val 1
 toil-cwl-runner --enable-dev workflows/pattern1-2.cwl --in1 "Direct" --val 2
 
 toil-cwl-runner --enable-dev workflows/pattern2.cwl --val 0
-toil-cwl-runner --enable-dev workflows/pattern2.cwl --val 1  # --> raises exception
+toil-cwl-runner --enable-dev workflows/pattern2.cwl --val 1 || true # --> raises exception
 toil-cwl-runner --enable-dev workflows/pattern2.cwl --val 2
 
 toil-cwl-runner --enable-dev workflows/pattern3.cwl --val 0
@@ -27,7 +27,7 @@ toil-cwl-runner --enable-dev workflows/pattern4.cwl --val 2  # One item
 toil-cwl-runner --enable-dev workflows/pattern4.cwl --val 3  # two items
 
 toil-cwl-runner --enable-dev workflows/pattern2.cwl --val 0  # bar
-toil-cwl-runner --enable-dev workflows/pattern2.cwl --val 1  # Runtime error
+toil-cwl-runner --enable-dev workflows/pattern2.cwl --val 1  || true # Runtime error
 toil-cwl-runner --enable-dev workflows/pattern2.cwl --val 2  # foo
 
 toil-cwl-runner --enable-dev workflows/scatter-1.cwl --val 4  # just odd = foo
