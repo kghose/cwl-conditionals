@@ -1,4 +1,4 @@
-# Pattern 5: Same as if else 
+# Pattern 5: Same as if else
 
 # cwltoil --enable-dev workflows/pattern2.cwl --val 0  # bar
 # cwltoil --enable-dev workflows/pattern2.cwl --val 1  # Runtime error
@@ -28,17 +28,19 @@ steps:
     in:
       in1: val
       a_new_var: val
+      el: step0/out1
     run: ../tools/bar.cwl
-    when: $(inputs.a_new_var < 1)
+    when: $(inputs.el === null)
     out: [out1]
 
 outputs:
-  out1: 
+  out1:
     type: string
     outputSource:
         - step0/out1
         - step1/out1
     pickValue: first_non_null
 
-requirements: 
+requirements:
   InlineJavascriptRequirement: {}
+  MultipleInputFeatureRequirement: {}

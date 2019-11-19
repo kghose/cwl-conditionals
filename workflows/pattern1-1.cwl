@@ -1,5 +1,5 @@
 # This implements the bypass pattern
-# Directly on workflow I/O ports 
+# Directly on workflow I/O ports
 
 # cwltoil --enable-dev workflows/pattern1-1.cwl --in1 "Direct" --val 1
 # cwltoil --enable-dev workflows/pattern1-1.cwl --in1 "Direct" --val 2
@@ -15,7 +15,7 @@ steps:
   step1:
     in:
       in1: val
-      a_new_var: in1
+      a_new_var: val
     run: ../tools/foo.cwl
     when: $(inputs.a_new_var > 1)
     out: [out1]
@@ -24,12 +24,13 @@ steps:
     # are not declared in the underlying tool
 
 outputs:
-  out1: 
+  out1:
     type: string
     outputSource:
         - step1/out1
         - in1
     pickValue: first_non_null   # Should raise validation error if omitted
 
-requirements: 
+requirements:
   InlineJavascriptRequirement: {}
+  MultipleInputFeatureRequirement: {}

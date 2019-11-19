@@ -3,7 +3,7 @@
 # cwltoil --enable-dev workflows/pattern2.cwl --val 0
 # cwltoil --enable-dev workflows/pattern2.cwl --val 1  -> Raises exception
 # cwltoil --enable-dev workflows/pattern2.cwl --val 2
- 
+
 class: Workflow
 cwlVersion: v1.2.0-dev1
 inputs:
@@ -33,12 +33,13 @@ steps:
     out: [out1]
 
 outputs:
-  out1: 
+  out1:
     type: string
     outputSource:
         - step0/out1
         - step1/out1
     pickValue: first_non_null
 
-requirements: 
+requirements:
   InlineJavascriptRequirement: {}
+  MultipleInputFeatureRequirement: {}

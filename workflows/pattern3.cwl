@@ -32,12 +32,13 @@ steps:
     out: [out1]
 
 outputs:
-  out1: 
+  out1:
     type: string
     outputSource:
         - step0/out1
         - step1/out1
     pickValue: first_non_null
 
-requirements: 
+requirements:
   InlineJavascriptRequirement: {}
+  MultipleInputFeatureRequirement: {}

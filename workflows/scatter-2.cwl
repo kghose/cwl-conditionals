@@ -9,7 +9,7 @@ cwlVersion: v1.2.0-dev1
 inputs:
   val: int
 
-steps: 
+steps:
 
   step1:
     in:
@@ -22,18 +22,18 @@ steps:
       in1: step1/out1
     scatter: [in1]
     run: ../tools/foo.cwl
-    when: $(inputs.in1 % 2)
+    when: $((inputs.in1 % 2) == 1)
     out: [out1]
-    
+
   step3:
     in:
       in1: step1/out1
     scatter: [in1]
     run: ../tools/bar.cwl
-    when: $(1 - inputs.in1 % 2)
+    when: $((inputs.in1 % 2) == 0)
     out: [out1]
 
-outputs: 
+outputs:
   out1:
     type: string[]
     outputSource:
@@ -42,7 +42,7 @@ outputs:
     pickValue: all_non_null  # Omitting will give a warning
     linkMerge: merge_flattened  # Omitting will give validation error
 
-requirements: 
+requirements:
   ScatterFeatureRequirement: {}
   InlineJavascriptRequirement: {}
   MultipleInputFeatureRequirement: {}

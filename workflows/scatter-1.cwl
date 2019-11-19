@@ -8,7 +8,7 @@ cwlVersion: v1.2.0-dev1
 inputs:
   val: int
 
-steps: 
+steps:
 
   step1:
     in:
@@ -21,16 +21,16 @@ steps:
       in1: step1/out1
     scatter: [in1]
     run: ../tools/foo.cwl
-    when: $(inputs.in1 % 2)
+    when: $((inputs.in1 % 2) == 1)
     out: [out1]
-    
-outputs: 
+
+outputs:
   out1:
     type: string[]
     outputSource: step2/out1
     pickValue: all_non_null
 
-requirements: 
+requirements:
   ScatterFeatureRequirement: {}
   InlineJavascriptRequirement: {}
   MultipleInputFeatureRequirement: {}

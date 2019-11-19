@@ -1,5 +1,5 @@
 # This implements the bypass pattern
-# on workflow steps 
+# on workflow steps
 
 # cwltoil --enable-dev workflows/pattern1-2.cwl --in1 "Direct" --val 1
 # cwltoil --enable-dev workflows/pattern1-2.cwl --in1 "Direct" --val 2
@@ -28,18 +28,19 @@ steps:
 
   step2:
     in:
-      in1: 
+      in1:
         source:
             - step1/out1
             - in1
-        pickValue: first_non_null         
+        pickValue: first_non_null
     run: ../tools/echo.cwl
     out: [out1]
 
 outputs:
-  out1: 
+  out1:
     type: string
     outputSource: step2/out1
 
-requirements: 
+requirements:
   InlineJavascriptRequirement: {}
+  MultipleInputFeatureRequirement: {}

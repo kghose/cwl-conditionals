@@ -9,7 +9,7 @@ cwlVersion: v1.2.0-dev1
 inputs:
   val: int
 
-steps: 
+steps:
 
   step1:
     in:
@@ -22,22 +22,22 @@ steps:
       in1: step1/out1
     scatter: [in1]
     run: ../tools/foo.cwl
-    when: $(inputs.in1 % 2)
+    when: $((inputs.in1 % 2) == 1)
     out: [out1]
-    
+
   step3:
     in:
       in1: step1/out1
     scatter: [in1]
     run: ../tools/bar.cwl
-    when: $(1 - inputs.in1 % 2)
+    when: $((inputs.in1 % 2) == 0)
     out: [out1]
 
-outputs: 
+outputs:
   out1:
-    type: 
+    type:
       type: array
-      items: 
+      items:
         type: array
         items: string
     outputSource:
@@ -45,7 +45,7 @@ outputs:
         - step3/out1
     pickValue: all_non_null  # This has no effect because it does not recurse
 
-requirements: 
+requirements:
   ScatterFeatureRequirement: {}
   InlineJavascriptRequirement: {}
   MultipleInputFeatureRequirement: {}

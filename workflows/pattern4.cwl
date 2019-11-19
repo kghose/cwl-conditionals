@@ -33,7 +33,7 @@ steps:
     out: [out1]
 
 outputs:
-  out1: 
+  out1:
     type: string[]
     # type: string  # The singleton type will raise a validation error
     outputSource:
@@ -41,5 +41,6 @@ outputs:
         - step1/out1
     pickValue: all_non_null
 
-requirements: 
+requirements:
   InlineJavascriptRequirement: {}
+  MultipleInputFeatureRequirement: {}
