@@ -21,7 +21,7 @@ steps:
       in1: step1/out1
     scatter: [in1]
     run: ../tools/foo.cwl
-    when: $(inputs.in1 % 2)
+    when: $(inputs.in1 % 2 == 1)
     out: [out1]
     
 outputs: 

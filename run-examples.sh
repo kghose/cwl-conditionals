@@ -1,4 +1,4 @@
-set -e
+set -x
 
 toil-cwl-runner workflows/baseline.cwl --in1 A --in2 B
 
